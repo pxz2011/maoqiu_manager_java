@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 110105
+    url: jdbc:mysql://localhost:3306/maoqiu_manager?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
