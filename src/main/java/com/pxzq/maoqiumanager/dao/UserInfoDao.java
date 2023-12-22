@@ -1,9 +1,6 @@
 package com.pxzq.maoqiumanager.dao;
 
-import com.pxzq.maoqiumanager.entity.UserInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
-
-import java.util.List;
 
 /**
  * @author pxz
@@ -14,9 +11,4 @@ import java.util.List;
  */
 @Mapper
 public interface UserInfoDao {
-    void insertUserInfo(UserInfoEntity userInfoEntity);
-
-    UserInfoEntity selectUserInfoById(Long id);
-
-    void deleteUserInfo(Long id);
 }
