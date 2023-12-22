@@ -1,4 +1,4 @@
-package org.pxzq.maoqiumanager;
+package com.pxzq.maoqiumanager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

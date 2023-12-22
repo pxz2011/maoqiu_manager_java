@@ -1,4 +1,4 @@
-package org.pxzq.maoqiumanager;
+package com.pxzq.maoqiumanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
