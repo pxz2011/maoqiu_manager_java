@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
  * @description 饮食信息service
  * @date 2023/12/22 19:01:34
  */
-@Service
+
 public interface MqoqiuDietService {
 }

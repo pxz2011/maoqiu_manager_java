@@ -2,6 +2,7 @@ package com.pxzq.maoqiumanager.dao;
 
 import com.pxzq.maoqiumanager.entity.UserInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface UserInfoDao {
     UserInfoEntity selectUserInfoById(Long id);
 
     void deleteUserInfo(Long id);
+
+    UserInfoEntity selectUserInfoByUserNameAndPassword(@Param("userName") String userName, @Param("password") String password);
 }

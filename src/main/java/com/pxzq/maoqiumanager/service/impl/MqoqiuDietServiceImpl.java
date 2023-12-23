@@ -1,6 +1,7 @@
 package com.pxzq.maoqiumanager.service.impl;
 
 import com.pxzq.maoqiumanager.service.MqoqiuDietService;
+import org.springframework.stereotype.Service;
 
 /**
  * @author pxz
@@ -9,5 +10,6 @@ import com.pxzq.maoqiumanager.service.MqoqiuDietService;
  * @description
  * @date 2023/12/22 19:02:13
  */
+@Service
 public class MqoqiuDietServiceImpl implements MqoqiuDietService {
 }

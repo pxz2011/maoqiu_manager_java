@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
  * @description
  * @date 2023/12/22 19:04:07
  */
-@Service
+
 public interface MaoqiuLiveService {
 }
