@@ -29,12 +29,13 @@ import java.util.HashMap;
 public class UserController {
     @Autowired
     private UserInfoService userInfoService;
+
     @PostMapping("/login")
-    public ResultMessage login(@RequestBody UserInfoEntity userInfoEntity){
+    public ResultMessage login(@RequestBody UserInfoEntity userInfoEntity) {
         //1.传给service层
         log.info(userInfoEntity.toString());
         String res = userInfoService.userLogin(userInfoEntity);
-        if(res!=null){
+        if (res != null) {
             return ResultMessage.success(res);
         }
         return ResultMessage.failure(ResultCode.USER_LOGIN_ERROR);
