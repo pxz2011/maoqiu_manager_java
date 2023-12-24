@@ -24,21 +24,22 @@ import java.util.Map;
  */
 @Service
 @Slf4j
-public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao,UserInfoEntity> implements UserInfoService {
+public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao, UserInfoEntity> implements UserInfoService {
     @Autowired
     private UserInfoDao userInfoDao;
     @Autowired
     private RedisUtil redisUtil;
+
     @Override
     public String userLogin(UserInfoEntity userInfoEntity) {
         //判断
         UserInfoEntity res = userInfoDao.selectUserInfoByUserNameAndPassword(userInfoEntity.getUserName(), SecureUtil.md5(userInfoEntity.getPassWord()));
         log.info(String.valueOf(res));
-        if(res != null){
+        if (res != null) {
             Map<String, Object> map = new HashMap<>();
-            map.put("user",res);
+            map.put("user", res);
             String jwt = JWTUtil.generateToken(map);
-            redisUtil.set("jwt_"+res.getUserName(),jwt,JWTUtil.EXPIRE * 1000);
+            redisUtil.set("jwt_" + res.getUserName(), jwt, JWTUtil.EXPIRE * 1000);
             return jwt;
         }
         return null;
@@ -48,7 +49,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao,UserInfoEntity>
     @Override
     public String userSignup(UserInfoEntity userInfoEntity) {
         UserInfoEntity userInfoEntity1 = userInfoDao.selectUserInfoByUserName(userInfoEntity.getUserName());
-        if(userInfoEntity1 != null){
+        if (userInfoEntity1 != null) {
             return "用户已存在";
         }
         //password 处理
@@ -57,9 +58,9 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoDao,UserInfoEntity>
         userInfoEntity.setUserPermission(1);
         userInfoDao.insert(userInfoEntity);
         Map<String, Object> map = new HashMap<>();
-        map.put("user",userInfoEntity);
+        map.put("user", userInfoEntity);
         String jwt = JWTUtil.generateToken(map);
-        redisUtil.set("jwt_"+userInfoEntity.getUserName(),jwt,JWTUtil.EXPIRE * 1000);
+        redisUtil.set("jwt_" + userInfoEntity.getUserName(), jwt, JWTUtil.EXPIRE * 1000);
         return jwt;
     }
 }
