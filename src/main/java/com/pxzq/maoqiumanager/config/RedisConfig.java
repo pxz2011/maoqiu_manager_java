@@ -1,4 +1,4 @@
-package com.pxzq.maoqiumanager.common;
+package com.pxzq.maoqiumanager.config;
 
 /**
  * @author pxz

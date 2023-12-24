@@ -1,9 +1,14 @@
 package com.pxzq.maoqiumanager.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author pxz
@@ -13,29 +18,20 @@ import java.time.LocalDateTime;
  * @date 2023/12/21 18:45:29
  */
 @Data
-@Entity
-@Table(name = "user_info")
+@TableName("user_info")
 public class UserInfoEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+    @TableId(value = "ID",type = IdType.AUTO)
     private Long id;
-
-    @Column(name = "USER_NAME", nullable = false)
+    @TableField("USER_NAME")
     private String userName;
-
-    @Column(name = "PASS_WORD", nullable = false)
+    @TableField("PASS_WORD")
     private String passWord;
-
-    @Column(name = "E-MAIL", nullable = false)
+    @TableField("E_MAIL")
     private String email;
-
-    @Column(name = "USER_PERMISSION", nullable = false)
+    @TableField("USER_PERMISSION")
     private Integer userPermission;
-
-    @Column(name = "CREATE_TIME", nullable = false)
-    private LocalDateTime createTime;
-
-    @Column(name = "UPDATE_TIME", nullable = false)
-    private LocalDateTime updateTime;
+    @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    private Date createTime;
+    @TableField(value = "UPDATE_TIME",fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 }

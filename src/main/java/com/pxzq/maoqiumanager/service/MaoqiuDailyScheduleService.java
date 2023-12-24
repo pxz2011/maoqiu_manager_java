@@ -1,5 +1,8 @@
 package com.pxzq.maoqiumanager.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.pxzq.maoqiumanager.dao.MaoqiuDailyScheduleDao;
+import com.pxzq.maoqiumanager.entity.MaoqiuDailyScheduleEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,5 +13,5 @@ import org.springframework.stereotype.Service;
  * @date 2023/12/22 19:05:03
  */
 
-public interface MaoqiuDailyScheduleService {
+public interface MaoqiuDailyScheduleService extends IService<MaoqiuDailyScheduleEntity> {
 }

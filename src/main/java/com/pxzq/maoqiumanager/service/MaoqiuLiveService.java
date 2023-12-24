@@ -1,5 +1,7 @@
 package com.pxzq.maoqiumanager.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,5 +12,5 @@ import org.springframework.stereotype.Service;
  * @date 2023/12/22 19:04:07
  */
 
-public interface MaoqiuLiveService {
+public interface MaoqiuLiveService extends IService<MaoqiuLiveEntity> {
 }

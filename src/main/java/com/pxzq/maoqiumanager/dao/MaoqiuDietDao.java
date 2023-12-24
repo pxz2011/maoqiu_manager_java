@@ -1,5 +1,8 @@
 package com.pxzq.maoqiumanager.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.pxzq.maoqiumanager.entity.MaoqiuDietEntity;
+import com.pxzq.maoqiumanager.entity.UserInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -10,5 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2023/12/22 18:58:51
  */
 @Mapper
-public interface MaoqiuDietDao {
+public interface MaoqiuDietDao extends BaseMapper<MaoqiuDietEntity> {
 }

@@ -9,7 +9,7 @@
         <id column="ID" property="id" />
         <result column="USER_NAME" property="userName" />
         <result column="PASS_WORD" property="passWord" />
-        <result column="E-MAIL" property="email" />
+        <result column="E_MAIL" property="email" />
         <result column="USER_PERMISSION" property="userPermission" />
         <result column="CREATE_TIME" property="createTime" />
         <result column="UPDATE_TIME" property="updateTime" />
@@ -18,7 +18,7 @@
     <!-- 插入语句 -->
     <insert id="insertUserInfo" parameterType="com.pxzq.maoqiumanager.entity.UserInfoEntity">
         INSERT INTO user_info
-        (USER_NAME, PASS_WORD, `E-MAIL`, USER_PERMISSION, CREATE_TIME, UPDATE_TIME)
+        (USER_NAME, PASS_WORD, `E_MAIL`, USER_PERMISSION, CREATE_TIME, UPDATE_TIME)
         VALUES
             (#{userName}, #{passWord}, #{email}, #{userPermission}, #{createTime}, #{updateTime})
     </insert>
@@ -29,7 +29,10 @@
     </select>
     <!--    用户登录-->
     <select id="selectUserInfoByUserNameAndPassword" resultMap="userInfoResultMap">
-        SELECT id, user_name, pass_word, `e-mail`, user_permission, create_time, update_time FROM user_info WHERE USER_NAME = #{userName} AND PASS_WORD = #{password}
+        SELECT id, user_name, pass_word, `e_mail`, user_permission, create_time, update_time FROM user_info WHERE USER_NAME = #{userName} AND PASS_WORD = #{password}
+    </select>
+    <select id="selectUserInfoByUserName" resultMap="userInfoResultMap">
+        SELECT id, user_name, pass_word, `e_mail`, user_permission, create_time, update_time FROM user_info WHERE USER_NAME = #{userName}
     </select>
     <!-- 更新语句 -->
     <update id="updateUserInfo" parameterType="com.pxzq.maoqiumanager.entity.UserInfoEntity">
@@ -37,7 +40,7 @@
         SET
             USER_NAME = #{userName},
             PASS_WORD = #{passWord},
-            `E-MAIL` = #{email},
+            `E_MAIL` = #{email},
             USER_PERMISSION = #{userPermission},
             CREATE_TIME = #{createTime},
             UPDATE_TIME = #{updateTime}

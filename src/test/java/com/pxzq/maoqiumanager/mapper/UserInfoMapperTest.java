@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author pxz
@@ -24,8 +25,8 @@ public class UserInfoMapperTest {
         UserInfoEntity userInfoEntity = new UserInfoEntity();
         userInfoEntity.setUserName("test");
         userInfoEntity.setUserPermission(0);
-        userInfoEntity.setCreateTime(LocalDateTime.now());
-        userInfoEntity.setUpdateTime(LocalDateTime.now());
+        userInfoEntity.setCreateTime(new Date());
+        userInfoEntity.setUpdateTime(new Date());
         userInfoEntity.setEmail("test");
         userInfoEntity.setPassWord("test");
         this.userInfoMapper.insertUserInfo(userInfoEntity);
