@@ -14,4 +14,6 @@ import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 
 public interface MaoqiuLiveService extends IService<MaoqiuLiveEntity> {
     IPage<MaoqiuLiveEntity> getLiveListPage(int pageNum, int pageSize, String token);
+
+    boolean delLiveInfo(Long id);
 }

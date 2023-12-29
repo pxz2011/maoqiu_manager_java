@@ -5,10 +5,9 @@ import com.pxzq.maoqiumanager.common.ResultMessage;
 import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 import com.pxzq.maoqiumanager.service.MaoqiuLiveService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import static com.pxzq.maoqiumanager.common.ResultCode.SPECIFIED_QUESTIONED_USER_NOT_EXIST;
 
 /**
  * @author pxz
@@ -28,5 +27,15 @@ public class MaoqiuLiveController {
         //分页查询
         IPage<MaoqiuLiveEntity> liveListPage = maoqiuLiveService.getLiveListPage(pageNum, pageSize,token);
         return ResultMessage.success(liveListPage.getRecords());
+    }
+
+    //删除
+    @DeleteMapping("/{id}")
+    public ResultMessage delLive(@PathVariable Long id){
+        boolean b = maoqiuLiveService.delLiveInfo(id);
+        if (b){
+            return ResultMessage.success();
+        }
+        return ResultMessage.failure(SPECIFIED_QUESTIONED_USER_NOT_EXIST);
     }
 }

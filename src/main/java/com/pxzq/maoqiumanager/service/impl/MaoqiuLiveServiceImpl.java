@@ -31,4 +31,9 @@ public class MaoqiuLiveServiceImpl extends ServiceImpl<MaoqiuLiveDao, MaoqiuLive
         }
         throw new JWTException("jwt有误");
     }
+
+    @Override
+    public boolean delLiveInfo(Long id) {
+        return this.removeById(id);
+    }
 }
