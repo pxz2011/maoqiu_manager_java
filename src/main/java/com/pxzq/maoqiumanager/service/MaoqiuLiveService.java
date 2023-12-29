@@ -1,8 +1,8 @@
 package com.pxzq.maoqiumanager.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
-import org.springframework.stereotype.Service;
 
 /**
  * @author pxz
@@ -13,4 +13,5 @@ import org.springframework.stereotype.Service;
  */
 
 public interface MaoqiuLiveService extends IService<MaoqiuLiveEntity> {
+    IPage<MaoqiuLiveEntity> getLiveListPage(int pageNum, int pageSize, String token);
 }

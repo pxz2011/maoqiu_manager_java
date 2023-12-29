@@ -55,9 +55,9 @@ public enum ResultCode {
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限");
 
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
     ResultCode(Integer code, String message) {
         this.code = code;

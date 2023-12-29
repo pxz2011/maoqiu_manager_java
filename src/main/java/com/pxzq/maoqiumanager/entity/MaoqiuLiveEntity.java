@@ -1,8 +1,11 @@
 package com.pxzq.maoqiumanager.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -10,42 +13,73 @@ import java.time.LocalDateTime;
  * @version 1.0
  * @project maoqiu-manager
  * @description 生活信息表
- * @date 2023/12/22 18:39:40
+ * @date 2023/12/22 18:39:40 
  */
 
+@TableName("maoqiu_live")
 @Data
-@Entity
-@Table(name = "maoqiu_live")
-public class MaoqiuLiveEntity {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "ID", nullable = false)
+public class MaoqiuLiveEntity implements Serializable {
+
+   @Serial
+   private static final long serialVersionUID = 1L;
+
+   /**
+    * id
+    */
+   @TableId(value = "ID", type = IdType.AUTO)
    private Long id;
 
-   @Column(name = "BATH")
+   /**
+    * 洗澡情况
+    */
+   @TableField("BATH")
    private String bath;
 
-   @Column(name = "GROOMING")
+   /**
+    * 梳毛情况
+    */
+   @TableField("GROOMING")
    private String grooming;
 
-   @Column(name = "NAIL")
+   /**
+    * 剪指甲情况
+    */
+   @TableField("NAIL")
    private String nail;
 
-   @Column(name = "ACTIVITY")
+   /**
+    * 活动情况
+    */
+   @TableField("ACTIVITY")
    private String activity;
 
-   @Column(name = "DAILYUSE_EXPENDITURE")
-   private String dailyUseExpenditure;
+   /**
+    * 支出
+    */
+   @TableField("DAILYUSE_EXPENDITURE")
+   private String dailyuseExpenditure;
 
-   @Column(name = "CREATE_TIME", nullable = false)
+   /**
+    * 创建时间
+    */
+   @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
    private LocalDateTime createTime;
 
-   @Column(name = "UPDATE_TIME", nullable = false)
+   /**
+    * 更新时间
+    */
+   @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
    private LocalDateTime updateTime;
 
-   @Column(name = "USER_ID", nullable = false)
+   /**
+    * 用户ID
+    */
+   @TableField("USER_ID")
    private Long userId;
 
-   @Column(name = "DATE", nullable = false)
+   /**
+    * 日期
+    */
+   @TableField("DATE")
    private LocalDateTime date;
 }

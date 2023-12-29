@@ -1,8 +1,9 @@
 package com.pxzq.maoqiumanager.service;
 
-import cn.hutool.system.UserInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.pxzq.maoqiumanager.entity.UserInfoEntity;
+
+import java.util.Map;
 
 /**
  * @author pxz
@@ -13,7 +14,7 @@ import com.pxzq.maoqiumanager.entity.UserInfoEntity;
  */
 
 public interface UserInfoService extends IService<UserInfoEntity> {
-    String userLogin(UserInfoEntity userInfoEntity);
+    Map<String, Object> userLogin(UserInfoEntity userInfoEntity);
 
     String userSignup(UserInfoEntity userInfoEntity);
 }
