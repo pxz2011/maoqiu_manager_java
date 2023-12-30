@@ -1,12 +1,14 @@
 package com.pxzq.maoqiumanager.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author pxz
@@ -62,14 +64,16 @@ public class MaoqiuLiveEntity implements Serializable {
    /**
     * 创建时间
     */
+   @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
-   private LocalDateTime createTime;
+   private Date createTime;
 
    /**
     * 更新时间
     */
+   @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
-   private LocalDateTime updateTime;
+   private Date updateTime;
 
    /**
     * 用户ID
@@ -80,6 +84,7 @@ public class MaoqiuLiveEntity implements Serializable {
    /**
     * 日期
     */
+   @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd")
    @TableField("DATE")
-   private LocalDateTime date;
+   private Date date;
 }

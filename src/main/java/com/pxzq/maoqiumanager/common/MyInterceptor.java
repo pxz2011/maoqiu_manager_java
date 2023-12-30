@@ -1,5 +1,7 @@
 package com.pxzq.maoqiumanager.common;
 
+import cn.hutool.jwt.JWT;
+import com.pxzq.maoqiumanager.service.exception.JWTException;
 import com.pxzq.maoqiumanager.utils.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,7 +22,10 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) {
         String token = request.getHeader("Token");
-        return token != null && JwtUtil.validateToken(token);
+        if(token == null || token.isEmpty() || !JwtUtil.validateToken(token)){
+            return false;
+        }
+        return true;
     }
 
     @Override

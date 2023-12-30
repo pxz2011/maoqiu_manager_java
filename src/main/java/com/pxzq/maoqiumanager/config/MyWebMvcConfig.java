@@ -27,7 +27,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        String[] strings = {"/user/login","/user/signup"};
+        String[] strings = {"/user/login","/user/signup","/user/logout"};
         registry.addInterceptor(new MyInterceptor())
                 .addPathPatterns("/**") // 设置拦截的路径
                 .excludePathPatterns(strings); // 设置不拦截的路径

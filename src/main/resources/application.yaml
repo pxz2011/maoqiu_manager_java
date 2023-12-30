@@ -1,9 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 110105
-    url: jdbc:mysql://localhost:3306/maoqiu_manager?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    # 本地
+#    username: root
+#    password: 110105
+#    url: jdbc:mysql://localhost:3306/maoqiu_manager?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    # 阿里云
+    url: jdbc:mysql://rm-cn-wwo3hcbtp0006cuo.rwlb.rds.aliyuncs.com:3306/maoqiu_manager_cloud?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: pxf1997
+    password: Dafengzi123!
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
   configuration:
