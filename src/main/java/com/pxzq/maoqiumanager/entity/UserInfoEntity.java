@@ -31,7 +31,9 @@ public class UserInfoEntity {
     @TableField("USER_PERMISSION")
     private Integer userPermission;
     @TableField(value = "CREATE_TIME",fill = FieldFill.INSERT)
+    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     @TableField(value = "UPDATE_TIME",fill = FieldFill.INSERT_UPDATE)
+    @JsonFormat(locale = "zh", timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 }

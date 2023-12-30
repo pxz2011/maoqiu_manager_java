@@ -2,6 +2,7 @@ package com.pxzq.maoqiumanager.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.pxzq.maoqiumanager.common.ResultMessage;
+import com.pxzq.maoqiumanager.dto.MaoqiuLiveDto;
 import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 import com.pxzq.maoqiumanager.service.MaoqiuLiveService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,8 @@ public class MaoqiuLiveController {
     @GetMapping("/info")
     public ResultMessage getLive(int pageNum, int pageSize, @RequestHeader("Token") String token) {
         //分页查询
-        IPage<MaoqiuLiveEntity> liveListPage = maoqiuLiveService.getLiveListPage(pageNum, pageSize,token);
-        return ResultMessage.success(liveListPage.getRecords());
+        MaoqiuLiveDto liveListPage = maoqiuLiveService.getLiveListPage(pageNum, pageSize,token);
+        return ResultMessage.success(liveListPage);
     }
 
     //删除
@@ -37,5 +38,13 @@ public class MaoqiuLiveController {
             return ResultMessage.success();
         }
         return ResultMessage.failure(SPECIFIED_QUESTIONED_USER_NOT_EXIST);
+    }
+
+    //新增或保存
+
+    @PostMapping("/save")
+    public ResultMessage save(@RequestBody MaoqiuLiveEntity entity){
+        maoqiuLiveService.saveWithUserId(entity);
+        return ResultMessage.success();
     }
 }

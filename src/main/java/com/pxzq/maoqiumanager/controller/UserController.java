@@ -60,4 +60,6 @@ public class UserController {
         return ResultMessage.failure(SPECIFIED_QUESTIONED_USER_NOT_EXIST);
 
     }
+    //编辑个人信息
+
 }
