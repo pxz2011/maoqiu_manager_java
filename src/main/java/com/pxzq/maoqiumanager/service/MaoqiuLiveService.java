@@ -1,7 +1,7 @@
 package com.pxzq.maoqiumanager.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.pxzq.maoqiumanager.dto.MaoqiuLiveDto;
+import com.pxzq.maoqiumanager.dto.MaoqiuLiveEntityDto;
 import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 
 /**
@@ -13,7 +13,7 @@ import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
  */
 
 public interface MaoqiuLiveService extends IService<MaoqiuLiveEntity> {
-    MaoqiuLiveDto getLiveListPage(int pageNum, int pageSize, String token);
+    MaoqiuLiveEntityDto getLiveListPage(int pageNum, int pageSize, String token);
 
     boolean delLiveInfo(Long id);
 

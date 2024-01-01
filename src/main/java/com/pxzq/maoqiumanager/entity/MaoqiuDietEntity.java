@@ -1,51 +1,36 @@
 package com.pxzq.maoqiumanager.entity;
 
-import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
-/**
- * @author pxz
- * @version 1.0
- * @project maoqiu-manager
- * @description 饮食信息
- * @date 2023/12/22 18:43:32
- */
 @Data
-@Entity
-@Table(name = "maoqiu_diet")
+@TableName("maoqiu_diet")
 public class MaoqiuDietEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
+
+    @TableId(value = "ID", type = IdType.AUTO)
     private Long id;
-
-    @Column(name = "DIET_QUANTITY", nullable = false)
+    @TableField("DIET_QUANTITY")
     private Integer dietQuantity;
-
-    @Column(name = "FOOD")
+    @TableField("FOOD")
     private String food;
-
-    @Column(name = "IS_NORMAL", nullable = false)
+    @TableField("IS_NORMAL")
     private Integer isNormal;
-
-    @Column(name = "DESCRIPTION")
+    @TableField("DESCRIPTION")
     private String description;
-
-    @Column(name = "EXPENDITURE", precision = 10, scale = 2)
+    @TableField("EXPENDITURE")
     private BigDecimal expenditure;
-
-    @Column(name = "DATE", nullable = false)
-    private LocalDateTime date;
-
-    @Column(name = "CREATE_TIME", nullable = false)
-    private LocalDateTime createTime;
-
-    @Column(name = "UPDATE_TIME", nullable = false)
-    private LocalDateTime updateTime;
-
-    @Column(name = "USER_ID", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date date;
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date createTime;
+    @TableField(value = "UPDATE_TIME", fill = FieldFill.INSERT_UPDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date updateTime;
+    @TableField("USER_ID")
     private Long userId;
 }

@@ -1,8 +1,7 @@
 package com.pxzq.maoqiumanager.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.pxzq.maoqiumanager.common.ResultMessage;
-import com.pxzq.maoqiumanager.dto.MaoqiuLiveDto;
+import com.pxzq.maoqiumanager.dto.MaoqiuLiveEntityDto;
 import com.pxzq.maoqiumanager.entity.MaoqiuLiveEntity;
 import com.pxzq.maoqiumanager.service.MaoqiuLiveService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +25,7 @@ public class MaoqiuLiveController {
     @GetMapping("/info")
     public ResultMessage getLive(int pageNum, int pageSize, @RequestHeader("Token") String token) {
         //分页查询
-        MaoqiuLiveDto liveListPage = maoqiuLiveService.getLiveListPage(pageNum, pageSize,token);
+        MaoqiuLiveEntityDto liveListPage = maoqiuLiveService.getLiveListPage(pageNum, pageSize,token);
         return ResultMessage.success(liveListPage);
     }
 
